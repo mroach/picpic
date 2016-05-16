@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
+# Use Puma engine
+gem 'puma'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -67,5 +71,11 @@ group :development do
 
   # Suppress the verbose Sprockets log messages
   gem 'quiet_assets'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-rbenv',   require: false
+  gem 'capistrano3-puma',   require: false
 end
 
