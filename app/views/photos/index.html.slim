@@ -1,0 +1,31 @@
+h1 Photos
+
+p = link_to 'Upload Photo', new_photo_path
+
+/ .ui.cards
+/   - @photos.each do |photo|
+/     .ui.card
+/       .content
+/         .right.floated.meta = timeago_tag photo.created_at, lang: 'en-short'
+/       = link_to photo_path(photo), class: 'ui small centered image' do
+/         = image_tag(photo.file.thumb.url)
+/       .content
+/         .meta = photo.description
+/       .extra.content
+/         .ui.small.icon.buttons
+/           = link_to photo.file.url, class: 'ui black button', download: true do
+/             i.download.icon
+/           = link_to edit_photo_path(photo), class: 'ui blue button' do
+/             i.edit.icon
+/           = link_to photo_path(photo), method: :delete, class: 'ui red button' do
+/             i.delete.icon
+
+.ui.eight.column.doubling.grid
+  - @photos.each do |photo|
+    .column
+      .ui.image
+        - if photo.generated?
+          .ui.right.yellow.corner.label title="Photo was automatically generated"
+            i.wizard.icon
+        = link_to photo.file.url, class: 'ui small image', download: photo.file.download_file_name do
+          = image_tag(photo.file.thumb.url)

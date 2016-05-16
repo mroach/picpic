@@ -1,0 +1,5 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    .ui.message class=(name.to_s == 'notice' ? 'positive' : 'negative')
+      i.close.icon
+      div = msg

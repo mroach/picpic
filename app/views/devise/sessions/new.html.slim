@@ -1,0 +1,29 @@
+css:
+  body { background-color: #DADADA; }
+
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h2.black.header
+      i.lock.icon
+      | Sign In
+
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'large form') do |f|
+        .ui.stacked.segment
+          .field
+            .ui.left.icon.input
+              i.user.icon
+              = f.email_field :email, value: 'user@picpic.mroach.com'
+
+          .field
+            .ui.left.icon.input
+              i.lock.icon
+              = f.password_field :password, autocomplete: "off", autofocus: true
+
+          - if devise_mapping.rememberable?
+            .field
+              .ui.toggle.checkbox
+                = f.check_box :remember_me, checked: 'checked'
+                = f.label :remember_me
+
+          .actions
+            = f.submit "Log in", class: 'ui fluid large black submit button'

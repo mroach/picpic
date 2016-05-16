@@ -1,0 +1,8 @@
+.ui.fixed.inverted.menu
+  a.header.item href="#" PIC Pic!
+  = link_to 'Photos', photos_url, class: 'item'
+  - if user_signed_in?
+    .right.menu
+      = link_to destroy_user_session_path, method: :delete, class: 'item' do
+        i.sign.out.icon
+        = t('nav.sign_out')

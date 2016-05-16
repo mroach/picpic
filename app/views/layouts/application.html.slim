@@ -1,0 +1,20 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    title == [content_for?(:title) ? yield(:title) : t(:site_name)].join(' - ')
+
+    link rel="apple-touch-icon" href=image_path('apple-icons/apple-touch-icon.png')
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tag
+
+  body
+    = render partial: "layouts/navigation"
+    main.container
+      /= render partial: "layouts/breadcrumbs"
+      = render partial: "layouts/messages"
+      == yield

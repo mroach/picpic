@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery-ujs
 //= require turbolinks
+//= require rails-timeago
+//= require locales/jquery.timeago.en-short.js
 //= require_tree .
