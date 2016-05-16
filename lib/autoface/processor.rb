@@ -82,7 +82,8 @@ module Autoface
     def detect_faces
       load_mini_image!
 
-      face_data_path = '/Users/mroach/Desktop/haarcascade_frontalface_alt.xml.1'
+      face_data_path = File.join(Rails.root, 'lib/autoface/haarcascade_frontalface_alt.xml')
+      logger.debug "Haar Cascade: #{face_data_path}"
       detector = OpenCV::CvHaarClassifierCascade::load(face_data_path)
 
       # Ue IM path as it will be a path to the temporary image created
