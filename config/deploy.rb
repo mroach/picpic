@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'picpic'
-set :repo_url, 'git@example.com:mroach/picpic.git'
+set :repo_url, 'git@github.com:mroach/picpic.git'
 set :user, :deploy
 set :keep_releases, 10
 
