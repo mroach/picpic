@@ -43,6 +43,9 @@ gem 'carrierwave'
 # Converts timestamps into relative times
 gem 'rails-timeago'
 
+# Clean enums
+gem 'classy_enum'
+
 source 'https://rails-assets.org' do
   # Use jquery as the JavaScript library
   gem 'rails-assets-jquery'
