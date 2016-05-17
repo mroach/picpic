@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517151017) do
+ActiveRecord::Schema.define(version: 20160517162217) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160517151017) do
     t.datetime "updated_at",                      null: false
     t.string   "file"
     t.boolean  "generated",       default: false, null: false
+    t.boolean  "archived",        default: false, null: false
   end
 
   add_index "photos", ["owner_person_id"], name: "index_photos_on_owner_person_id"

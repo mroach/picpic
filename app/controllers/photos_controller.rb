@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.order(id: :desc).page params[:page]
+    @photos = Photo.visible.order(id: :desc).page params[:page]
   end
 
   # GET /photos/1
@@ -69,7 +69,7 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    @photo.destroy
+    @photo.update(archived: true)
     respond_to do |format|
       format.html { redirect_to photos_url, notice: 'Photo was successfully deleted.' }
       format.json { head :no_content }
