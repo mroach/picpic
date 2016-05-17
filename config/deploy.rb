@@ -7,7 +7,6 @@ set :user, :deploy
 set :keep_releases, 10
 
 set :use_sudo,    false
-set :stage,       :production
 set :deploy_to,   "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :deploy_via,  :remote_cache
 set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
@@ -28,6 +27,11 @@ set :rbenv_ruby,     '2.3.0'
 set :rbenv_prefix,   "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles,    :all # default value
+
+secrets = YAML.load(File.read('config/secrets.yml'))[fetch(:rails_env, fetch(:stage)).to_s]
+set :rollbar_token, secrets['rollbar']
+set :rollbar_env,   Proc.new { fetch :stage }
+set :rollbar_role,  Proc.new { :app }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

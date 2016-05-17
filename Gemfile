@@ -49,6 +49,9 @@ gem 'kaminari'
 # Clean enums
 gem 'classy_enum'
 
+# Log aggregation
+gem 'rollbar'
+
 source 'https://rails-assets.org' do
   # Use jquery as the JavaScript library
   gem 'rails-assets-jquery'
