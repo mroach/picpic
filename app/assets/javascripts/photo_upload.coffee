@@ -32,6 +32,8 @@ $(document).on 'ready page:load', ->
       error: (xhr, status, errorMessage) ->
         $('.progress').hide()
         console.error "Upload failed! #{status}: #{errorMessage}"
+        $msg = $('<p/>').attr('class', 'ui error message').text('Upload failed. Sorry.')
+        $form.append($msg)
 
       complete: () ->
         $('input[accept^="image/"]', $form).remove()
