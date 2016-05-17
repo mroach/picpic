@@ -3,7 +3,7 @@
 //= require semantic/components/checkbox.js
 //  require semantic/components/colorize.js
 //= require semantic/components/dimmer.js
-//= require semantic/components/dropdown.js
+//  require semantic/components/dropdown.js
 //  require semantic/components/embed.js
 //= require semantic/components/form.js
 //  require semantic/components/modal.js
@@ -11,7 +11,7 @@
 //  require semantic/components/popup.js
 //= require semantic/components/progress.js
 //  require semantic/components/rating.js
-//= require semantic/components/search.js
+//  require semantic/components/search.js
 //  require semantic/components/shape.js
 //  require semantic/components/sidebar.js
 //= require semantic/components/site.js
