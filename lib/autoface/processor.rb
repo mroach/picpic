@@ -16,16 +16,19 @@ module Autoface
     end
 
     def extract_faces
+      results = []
       faces = detect_faces
 
-      raise "No faces found. So sad." if faces.empty?
+      if faces.empty?
+        logger.info "No faces found. So sad."
+        return results
+      end
 
       logger.info "Found #{faces.length} faces "
 
       face_number = 1
       outdir = output_options.fetch(:dir, File.dirname(path))
       basename = output_options.fetch(:basename, File.basename(path, '.*'))
-      results = []
 
       faces.each do |region|
         im_image = MiniMagick::Image.open(path)
