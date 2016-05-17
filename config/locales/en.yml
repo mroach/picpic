@@ -16,3 +16,10 @@ en:
       system_timestamp: "%FT%TZ"
   nav:
     sign_out: 'Sign Out'
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"

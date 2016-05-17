@@ -43,6 +43,9 @@ gem 'carrierwave'
 # Converts timestamps into relative times
 gem 'rails-timeago'
 
+# Pagination
+gem 'kaminari'
+
 # Clean enums
 gem 'classy_enum'
 

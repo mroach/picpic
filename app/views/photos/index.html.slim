@@ -53,6 +53,8 @@ br
 /           = link_to photo_path(photo), method: :delete, class: 'ui red button' do
 /             i.delete.icon
 
+= paginate @photos
+
 .ui.seven.column.doubling.grid
   - @photos.each do |photo|
     .column
@@ -72,3 +74,5 @@ br
             .ui.small.violet.right.corner.label title="Photo was automatically generated"
               i.wizard.icon
           = image_tag photo.file.thumb.url
+
+= paginate @photos
