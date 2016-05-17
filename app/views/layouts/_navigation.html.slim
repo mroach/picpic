@@ -1,5 +1,7 @@
 .ui.fixed.inverted.menu
-  a.header.item href="#" PIC Pic!
+  = link_to root_url, class: 'header item' do
+    i.rocket.icon
+    | PIC Pic!
   = link_to 'Photos', photos_url, class: 'item'
   - if user_signed_in?
     .right.menu

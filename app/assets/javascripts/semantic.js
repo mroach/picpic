@@ -9,7 +9,7 @@
 //  require semantic/components/modal.js
 //  require semantic/components/nag.js
 //  require semantic/components/popup.js
-//  require semantic/components/progress.js
+//= require semantic/components/progress.js
 //  require semantic/components/rating.js
 //= require semantic/components/search.js
 //  require semantic/components/shape.js

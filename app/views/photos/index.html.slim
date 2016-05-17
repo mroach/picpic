@@ -1,6 +1,39 @@
 h1 Photos
 
-p = link_to 'Upload Photo', new_photo_path
+form action=photos_url
+  .ui.buttons
+    .ui.primary.button data-action="snap"
+      i.icon.camera
+      | Snap
+    .or
+      | or
+    .ui.secondary.button data-action="pick"
+      i.icon.folder.open
+      | Pick
+
+  .ui.indicating.progress style="display: none"
+    .bar
+      .progress
+    .label Uploading photo...
+br
+
+/ .ui.seven.column.doubling.grid
+/   - @photos.each do |photo|
+/     .column
+/       .ui.photo.card
+/         .ui.dimmer
+/           .content
+/             .ui.two.centered.icon.buttons
+/               = link_to photo.file.url, class: 'ui green button', download: true do
+/                 i.download.icon
+/               = link_to photo_path(photo), method: :delete, class: 'ui red button' do
+/                 i.delete.icon
+/         .content
+/           .right.floated.meta
+/             i.clock.icon
+/             = timeago_tag photo.created_at, lang: 'en-short'
+/         = link_to photo_path(photo), class: 'ui small centered image' do
+/           = image_tag(photo.file.thumb.url)
 
 / .ui.cards
 /   - @photos.each do |photo|
@@ -20,12 +53,22 @@ p = link_to 'Upload Photo', new_photo_path
 /           = link_to photo_path(photo), method: :delete, class: 'ui red button' do
 /             i.delete.icon
 
-.ui.eight.column.doubling.grid
+.ui.seven.column.doubling.grid
   - @photos.each do |photo|
     .column
-      .ui.image
-        - if photo.generated?
-          .ui.right.yellow.corner.label title="Photo was automatically generated"
-            i.wizard.icon
-        = link_to photo.file.url, class: 'ui small image', download: photo.file.download_file_name do
-          = image_tag(photo.file.thumb.url)
+      .photo
+        .ui.dimmer
+          .content
+            .center
+              h3.inverted.icon.header
+                i.clock.icon
+                = timeago_tag photo.created_at, lang: 'en-short'
+              = link_to photo.file.url, class: 'ui tiny green icon button', download: photo.file.download_file_name, title: 'Download photo' do
+                i.download.icon
+              = link_to photo_path(photo), method: :delete, class: 'ui tiny red icon button', title: 'Delete photo' do
+                i.delete.icon
+        .ui.image
+          - if photo.generated?
+            .ui.small.violet.right.corner.label title="Photo was automatically generated"
+              i.wizard.icon
+          = image_tag photo.file.thumb.url
