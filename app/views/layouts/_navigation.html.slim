@@ -6,5 +6,4 @@
   - if user_signed_in?
     .right.menu
       = link_to destroy_user_session_path, method: :delete, class: 'item' do
-        i.sign.out.icon
-        = t('nav.sign_out')
+        i.sign.out.icon title="Sign out"
