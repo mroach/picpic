@@ -1,6 +1,11 @@
 css:
   body { background-color: #DADADA; }
 
+javascript:
+  $(function() {
+    $('h2').on('click', function() { $('.field:hidden').show(); });
+  });
+
 .ui.middle.aligned.center.aligned.grid
   .column
     h2.black.header
@@ -9,7 +14,7 @@ css:
 
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'large form') do |f|
         .ui.stacked.segment
-          .field
+          .field style="display: none"
             .ui.left.icon.input
               i.user.icon
               = f.email_field :email, value: 'user@picpic.mroach.com'
