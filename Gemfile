@@ -6,6 +6,9 @@ gem 'rails', '4.2.6'
 # Use Puma engine
 gem 'puma'
 
+# Process manager
+gem 'foreman'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -86,6 +89,6 @@ group :development do
   gem 'capistrano-rails',   require: false
   gem 'capistrano-rbenv',   require: false
   gem 'capistrano3-puma',   require: false
+  gem 'capistrano-foreman', require: false
   gem 'capistrano-secrets-yml', require: false
 end
-

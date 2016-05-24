@@ -33,6 +33,15 @@ set :rollbar_token, secrets['rollbar']
 set :rollbar_env,   Proc.new { fetch :stage }
 set :rollbar_role,  Proc.new { :app }
 
+set :foreman_use_sudo, false # Set to :rbenv for rbenv sudo, :rvm for rvmsudo or true for normal sudo
+set :foreman_roles, :all
+set :foreman_template, 'upstart'
+set :foreman_export_path, ->{ File.join(Dir.home, '.init') }
+set :foreman_options, ->{ {
+  app: fetch(:application),
+  log: File.join(shared_path, 'log')
+} }
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
