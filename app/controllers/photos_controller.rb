@@ -69,9 +69,11 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    # We're not actually deleting photos. We're marking them as archived
     @photo.update(archived: true)
+    redirect_back_to = request.headers['HTTP_REFERER'] || photos_url
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully deleted.' }
+      format.html { redirect_to redirect_back_to, notice: 'Photo was successfully deleted.' }
       format.json { head :no_content }
     end
   end
