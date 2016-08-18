@@ -72,6 +72,9 @@ group :development, :test do
 
   # Use rspec instead of minitest
   gem 'rspec-rails'
+
+  # Nice formatting for rspec output
+  gem 'fuubar'
 end
 
 group :development do
